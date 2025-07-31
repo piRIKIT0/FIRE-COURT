@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://du8soj064jrsg"]
+
+[ext_resource type="Script" uid="uid://bs3xufsgtp5bo" path="res://scripts/main.gd" id="1_qhk14"]
+[ext_resource type="Texture2D" uid="uid://dxpphrw7ve0dr" path="res://assets/pixil-frame-0(5).png" id="2_2fqfd"]
+[ext_resource type="PackedScene" uid="uid://b53ed0eqa3hen" path="res://prefebs/ball.tscn" id="2_pk4lj"]
+[ext_resource type="PackedScene" uid="uid://ce8s7tgii70u2" path="res://prefebs/hoop.tscn" id="3_x2kvf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fqfd"]
+size = Vector2(1082, 143)
+
+[node name="main" type="Node2D"]
+position = Vector2(3, 0)
+script = ExtResource("1_qhk14")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 172.0
+offset_bottom = 79.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(495, 306)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_2fqfd")
+
+[node name="HandMarker" type="Marker2D" parent="."]
+position = Vector2(508, 210)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-1, 416)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(538, 51.5)
+shape = SubResource("RectangleShape2D_2fqfd")
+
+[node name="Ball" parent="." instance=ExtResource("2_pk4lj")]
+position = Vector2(509, 212)
+
+[node name="Hoop" parent="." instance=ExtResource("3_x2kvf")]

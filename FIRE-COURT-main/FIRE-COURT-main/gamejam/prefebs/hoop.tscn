@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8s7tgii70u2"]
+
+[ext_resource type="Script" uid="uid://dj2kwj0jula4f" path="res://scripts/hoop.gd" id="1_wapqg"]
+[ext_resource type="Texture2D" uid="uid://clsx50xfoqriq" path="res://assets/pixil-frame-0(1).png" id="2_lx1am"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx1am"]
+size = Vector2(57, 8.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgq55"]
+size = Vector2(57.125, 9.25)
+
+[node name="Hoop" type="Area2D"]
+script = ExtResource("1_wapqg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1063, 158)
+scale = Vector2(0.11, 0.114)
+texture = ExtResource("2_lx1am")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1040.5, 110)
+shape = SubResource("RectangleShape2D_lx1am")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1040.44, 110)
+shape = SubResource("RectangleShape2D_dgq55")
